@@ -1,15 +1,34 @@
-import React, { cacheSignal, useState } from 'react'
-import countrydata from '../countrydata/countrydata'
-import Card from './Card'
+import React, { useState } from "react";
+import countrydata from "../countrydata/countrydata";
+import Card from "./Card";
+
 const Country = () => {
+  const [search, setSearch] = useState("");
+
+  // Filter Countries
+  const filteredCountries = countrydata.filter((country) =>
+    country.name.common.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
-    <div className='max-w-[90%] mx-auto '>
-      <h1>Country Data</h1>
+    <div className="max-w-[90%] mx-auto ">
+      <h1 className="text-2xl font-bold my-3">Country Data</h1>
       <p>Total Countries: {countrydata.length}</p>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 '>
-        {
-          countrydata.map((country) => (
+
+      {/* Search Input */}
+      <div>
+        <input
+          type="text"
+          placeholder="Search country..."
+          onChange={(e) => setSearch(e.target.value)}
+          className="border bg-transparent px-4 py-2 rounded-lg  my-6 "
+        />
+      </div>
+
+      {/* Cards Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        {filteredCountries.length > 0 ? (
+          filteredCountries.map((country) => (
             <Card
               key={country.name.common}
               name={country.name.common}
@@ -19,11 +38,14 @@ const Country = () => {
               capital={country.capital?.[0]}
             />
           ))
-        }
+        ) : (
+          <p className="col-span-full text-center text-gray-400">
+            No country found...
+          </p>
+        )}
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default Country
+export default Country;
