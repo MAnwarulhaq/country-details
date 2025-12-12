@@ -28,20 +28,32 @@ const Country = () => {
       {/* Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         {filteredCountries.length > 0 ? (
-          filteredCountries.map((country) => (
-            <Card
-              key={country.name.common}
-              name={country.name.common}
-              flag={country.flags.svg}
-              population={country.population}
-              region={country.region}
-              capital={country.capital?.[0]}
-            />
-          ))
+          // filteredCountries.sort().map((country) => (
+          //   <Card
+          //     key={country.name.common}
+          //     name={country.name.common}
+          //     flag={country.flags.svg}
+          //     population={country.population}
+          //     region={country.region}
+          //     capital={country.capital?.[0]}
+          //   />
+          // ))
+          filteredCountries
+            .sort((a, b) => a.name.common.localeCompare(b.name.common))
+            .map((country) => (
+              <Card
+                key={country.name.common}
+                name={country.name.common}
+                flag={country.flags.svg}
+                population={country.population}
+                region={country.region}
+                capital={country.capital?.[0]}
+              />
+            ))
         ) : (
-          <p className="col-span-full text-center text-gray-400">
-            No country found...
-          </p>
+        <p className="col-span-full text-center text-gray-400">
+          No country found...
+        </p>
         )}
       </div>
     </div>
