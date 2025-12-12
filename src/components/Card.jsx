@@ -1,19 +1,29 @@
-import React from 'react'
+import React from "react";
 
-const Card = ({key,name,flag,population,region,capital}) => {
+const Card = ({ name, flag, population, region, capital }) => {
   return (
-    <div key={key} className=' border border-white'>
-        <div className='h-40 w-full '>
-        <img src={flag} alt="" className='w-full h-full object-cover'/>
-        </div>
-        <div className='w-full h-40'>
-          <h1>Name: {name}</h1>
-          <h1>Region: {region}</h1>
-          <h1>Capital: {capital}</h1>
-          <h1>Populations: {population}</h1>
-        </div>
-    </div>
-  )
-}
+    <div
+      className="rounded-2xl overflow-hidden shadow-lg bg-white/10 backdrop-blur-lg border border-white/20 
+      hover:scale-[1.03] hover:shadow-xl transition-all duration-300 cursor-pointer"
+    >
+      
+      <div className="h-44 w-full">
+        <img
+          src={flag}
+          alt={name}
+          className="w-full h-full object-cover"
+        />
+      </div>
 
-export default Card
+  
+      <div className="p-4 space-y-1 bg-white">
+        <h1 className="text-lg font-semibold">{name}</h1>
+        <p className="text-sm opacity-80"><span className="font-medium">Region:</span> {region}</p>
+        <p className="text-sm opacity-80"><span className="font-medium">Capital:</span> {capital}</p>
+        <p className="text-sm opacity-80"><span className="font-medium">Population:</span> {population.toLocaleString()}</p>
+      </div>
+    </div>
+  );
+};
+
+export default Card;

@@ -6,7 +6,8 @@ const Country = () => {
   return (
     <div className='max-w-[90%] mx-auto '>
       <h1>Country Data</h1>
-      <div className='grid grid-cols-4 gap-5 '>
+      <p>Total Countries: {countrydata.length}</p>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 '>
         {
           countrydata.map((country) => (
             <Card
