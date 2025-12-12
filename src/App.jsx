@@ -3,13 +3,23 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Country from './components/Country'
+import CountryDetail from './components/CountryDetail'
+import { BrowserRouter,Routes,Route } from 'react-router-dom'
+
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-    <Country/>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Country/>}/>
+      <Route path='/countrydetail/:name' element={<CountryDetail/>}/>
+    </Routes>
+    </BrowserRouter>
+    {/* <Country/> */}
+    {/* <CountryDetail/> */}
     </>
   )
 }

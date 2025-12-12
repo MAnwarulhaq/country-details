@@ -11,7 +11,7 @@ const Country = () => {
   );
 
   return (
-    <div className="max-w-[90%] mx-auto ">
+    <div className="max-w-[90%] mx-auto text-white">
       <h1 className="text-2xl font-bold my-3">Country Data</h1>
       <p>Total Countries: {countrydata.length}</p>
 
@@ -21,7 +21,7 @@ const Country = () => {
           type="text"
           placeholder="Search country..."
           onChange={(e) => setSearch(e.target.value)}
-          className="border bg-transparent px-4 py-2 rounded-lg  my-6 "
+          className="border border-white bg-transparent px-4 py-2 rounded-lg  my-6 placeholder:text-white"
         />
       </div>
 
