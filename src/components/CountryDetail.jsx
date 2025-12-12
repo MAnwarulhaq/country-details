@@ -5,7 +5,6 @@ import countrydata from "../countrydata/countrydata";
 const CountryDetail = () => {
   const { name } = useParams();
 
-  // find exact country
   const country = countrydata.find(
     (c) => c.name.common.toLowerCase() === name.toLowerCase()
   );
@@ -18,7 +17,7 @@ const CountryDetail = () => {
     );
   }
 
-  // Destructure country data
+  
   const {
     flags,
     population,

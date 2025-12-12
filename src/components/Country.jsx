@@ -12,7 +12,7 @@ const Country = () => {
 
   return (
     <div className="max-w-[90%] mx-auto text-white">
-      <h1 className="text-2xl font-bold my-3">Country Data</h1>
+      <h1 className="text-2xl font-bold my-3">Countries Data</h1>
       <p>Total Countries: {countrydata.length}</p>
 
       {/* Search Input */}
