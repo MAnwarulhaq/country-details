@@ -11,7 +11,7 @@ const Country = () => {
   );
 
   return (
-    <div className="max-w-[90%] mx-auto text-white">
+    <div className="max-w-[90%] mx-auto text-white my-10">
       <h1 className="text-2xl font-bold my-3">Countries Data</h1>
       <p>Total Countries: {countrydata.length}</p>
 
