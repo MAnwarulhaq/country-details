@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import countrydata from "../countrydata/countrydata";
 import Card from "./Card";
-
+import CountriesListShimmer from "./CountriesListShimmer";
 const Country = () => {
   const [search, setSearch] = useState("");
 
@@ -11,7 +11,9 @@ const Country = () => {
   );
 
   return (
-    <div className="max-w-[90%] mx-auto text-white my-10">
+    <>
+    
+    <div className="max-w-[90%] mx-auto  my-10">
       <h1 className="text-2xl font-bold my-3">Countries Data</h1>
       <p>Total Countries: {countrydata.length}</p>
 
@@ -21,12 +23,12 @@ const Country = () => {
           type="text"
           placeholder="Search country..."
           onChange={(e) => setSearch(e.target.value)}
-          className="border border-white bg-transparent px-4 py-2 rounded-lg  my-6 placeholder:text-white"
+          className="border border-black bg-transparent px-4 py-2 rounded-lg  my-6"
         />
       </div>
-
-      {/* Cards Grid */}
+      {/* <CountriesListShimmer/> */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        
         {filteredCountries.length > 0 ? (
           // filteredCountries.sort().map((country) => (
           //   <Card
@@ -57,6 +59,7 @@ const Country = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 
