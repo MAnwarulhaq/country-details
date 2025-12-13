@@ -29,6 +29,7 @@ const CountryDetail = () => {
         languages,
         name: cname,
         maps,
+        borders,
     } = country;
 
     return (
@@ -84,6 +85,19 @@ const CountryDetail = () => {
                                 {languages && Object.values(languages).join(", ")}
                             </p>
                         </div>
+
+                    </div>
+                    <div >
+                        {
+                            borders && <div className="flex items-center gap-4">
+                                <p>Borders:</p>
+                                {borders?.map((b) => {
+                                    return (
+                                        <p>{b}</p>
+                                    )
+                                })}
+                            </div>
+                        }
 
                     </div>
 
